@@ -1,5 +1,5 @@
 {% set name = "click-default-group" %}
-{% set version = "1.2" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ba8c43d9c384e1ea7127484c5fc8f4e1ca759519a64fff10718d53f4b82c412a
+  sha256: 31f6f22fcb3d558172badd51fde3c444af9c9d5af8480c5540b51db6805ffa29
 
 build:
   noarch: python
