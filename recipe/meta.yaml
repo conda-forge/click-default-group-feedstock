@@ -1,25 +1,26 @@
 {% set name = "click-default-group" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d9560e8e8dfa44b3562fbc9425042a0fd6d21956fcc2db0077f63f34253ab904
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 04579c7e0cab39408babb7c7fb49795856d5e3f4736888423bc84ce86061fb3e
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.6
+    - flit-core >=3.2,<4
+    - python >=2.7
     - pip
   run:
-    - python >=3.6
+    - python >=2.7
     - click
 
 test:
@@ -31,7 +32,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Extends click.Group to invoke a command without explicit subcommand name.'
+  summary: Extends click.Group to invoke a command without explicit subcommand name.
 
 extra:
   recipe-maintainers:
